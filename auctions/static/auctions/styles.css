@@ -1,0 +1,180 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#ecf0f1;
+    color: #f9fafb;
+}
+
+input{
+    border: 1px solid #808e9b;
+    padding: 8px 10px;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: #333 0px 25px 20px -20px;
+    text-align: black;
+}
+
+textarea{
+    border: 1px solid #808e9b;
+    padding: 8px 10px;
+    border-radius: 10px;
+    outline: none;
+}
+textarea:focus{
+    outline: auto;
+    outline-color: #e67e22;
+}
+
+input:focus{
+   outline: auto;
+   outline-color: #e67e22;
+}
+
+select{
+    padding: 5px;
+    border-radius: 10px;
+    color: #e67e22;
+    font-weight: bold;
+}
+a:hover {
+    text-decoration: none;
+    color: #e67e22;
+    opacity: 0.9;
+}
+
+/* utils */
+.main-color{
+    color: #e67e22;
+    text-decoration: none;
+    
+}
+
+
+/* Bootstrap overwrite */
+.navbar-collapse{
+    flex-grow: 0;
+}
+.navbar-brand{
+    font-size: 25px;
+    padding: 0;
+    font-weight: bold;
+    transition: all 0.2s ease-in;
+}
+.navbar-brand:hover{
+    opacity: 0.8;
+    color: #e67e22;
+}
+
+
+.nav-link:hover{
+    transition: all 0.3s ease-in;
+    color: #e67e22;
+}
+
+.card-title{
+    text-decoration: none;
+    transition: all 0.3s ease-in;
+   
+}
+.card-title:hover{
+    opacity: 0.8;
+    color: #e67e22;
+}
+.card{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 20px 0px;
+    position: relative;
+    
+}
+
+.card-body{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.row{
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: start;
+}
+
+.card-subtitle{
+    font-size: 15px;
+    color: #808e9b;
+    margin-bottom: 20px;
+}
+
+.card-text{
+    color: #f9fafb;
+    font-size: 15px;
+}
+
+.closed{
+    color:#c0392b;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* Listing page */
+
+.listing-img{
+    height: 500px;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.img-div{
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.add-to-watchlist{
+    position: absolute;
+    top: 30px;
+    right: 40px;
+}
+
+.submit-btn{
+    color: #e67e22;
+    border: 1px solid #e67e22;
+}
+.submit-btn:hover{
+    border: 1px solid #e67e22;
+    opacity: 0.8;
+    color: #e67e22;
+}
+
+
+/* Create listing page */
+
+.listing-form{
+    width: 500px;
+}
+
+.listing-form input{
+    width: 100%;
+}
+
+.listing-from textarea{
+    width: 400px;
+}
+
+@media(max-width:550px){
+    .listing-form{
+        width: 350px;
+    }
+    .listing-img{
+        width: 90%;
+    }
+    .listing-title{
+        width: 250px;
+    }
+}

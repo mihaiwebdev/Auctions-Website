@@ -1,0 +1,48 @@
+{% extends 'auctions/layout.html' %}
+
+{% block body %}
+
+    <div class="pt-5">
+        
+        {% if categories %}
+            <div class="category-nav d-flex flex-column flex-md-row justify-content-between bg-secondary rounded p-3">
+                {% for category in categories %}
+                <h4><a class="main-color mx-5" href="{% url 'categories' category %}">{{ category }}</a></h4>
+                {% endfor %}
+            </div>
+        {% else %}
+        <a class="card-title text-dark " href="{% url 'categories' 'all' %}"> <i class="fa-solid fa-chevron-left mr-2"></i> Go Back</a>
+            <h3 class="main-color mt-5">{{ category }}</h3>
+
+            {% if listings %}
+                <div class="row">
+                    {% for listing in listings %}
+                            <div class="card bg-dark text-white" style="width:15rem;">  
+
+                            {% if listing.image %}
+                                <div class="pt-3">
+                                    <a href="{% url 'listing_page' listing.id %}"><img src="{{ listing.image }}" alt="image" class="card-img-top"></a>
+                                </div>
+                            {% endif %}
+
+                            <div class="card-body">
+                                <h5><a class="card-title main-color" href="{% url 'listing_page' listing.id %}">{{ listing.name }}</a></h5>
+                                {% if listing in auction_closed %}
+                                    <span class="closed">CLOSED</span>
+                                {% else %}
+                                    <p class="card-subtitle">Starting at ${{ listing.price }}</p>
+                                {% endif %}
+                                <p class="card-text">{{ listing.description }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            {% else %}
+                <p>No listings for {{ category }}</p>
+            {% endif %}
+            
+        {% endif %}
+    </div>
+
+{% endblock %}

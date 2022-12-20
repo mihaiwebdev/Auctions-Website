@@ -1,0 +1,40 @@
+{% extends 'auctions/layout.html '%}
+
+
+{% block body %}
+    <div class="pt-5">
+
+        <h2 class="main-color fw-bold">Watchlist</h2>
+
+        {% if watchlist %}
+            <div class="row">
+                {% for item in watchlist %}
+                    <div class="card bg-dark text-white" style="width:15rem;">
+
+                        {% if item.item.image %}
+                            <div class="pt-3">
+                                <a href="{% url 'listing_page' item.item.id %}"><img src="{{ item.item.image }}" alt="image" class="card-img-top"></a>
+                            </div>
+                        {% endif %}
+                        
+                        <div class="card-body">
+                            <h5><a class="card-title main-color" href="{% url 'listing_page' item.item.id %}">{{ item.item.name }}</a></h5>
+                            {% if listing in auction_closed %}
+                                <span class="closed">CLOSED</span>
+                            {% else %}
+                                <p class="card-subtitle">Starting at ${{ item.item.price }}</p>
+                            {% endif %}
+                            <p class="card-text">{{ item.item.description }}</p>
+                        </div>
+                    
+                    </div>
+                {% endfor %}
+            </div>
+
+        {% else %}
+            <p class="text-secondary">Watchlist is empty...</p>
+        {% endif %}
+    
+    </div>
+
+{% endblock%}
